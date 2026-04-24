@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        NAME = "Heba"
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo "Building.."
+                echo "Hello ${NAME}"
             }
         }
 
