@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+    }
+
     environment {
         NAME = "Heba"
     }
@@ -14,6 +18,9 @@ pipeline {
             steps {
                 echo "Building.."
                 echo "Hello ${NAME}"
+                
+                // Maven command
+                bat 'mvn -version'
             }
         }
 
