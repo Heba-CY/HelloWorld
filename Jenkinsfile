@@ -5,6 +5,10 @@ pipeline {
         NAME = "Heba"
     }
 
+    parameters {
+        booleanParam(name: 'RUN_TEST', defaultValue: true, description: 'Run test stage or not')
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -15,7 +19,7 @@ pipeline {
 
         stage('Test') {
             when {
-                expression { false }
+                expression { params.RUN_TEST }
             }
             steps {
                 echo 'Testing..'
